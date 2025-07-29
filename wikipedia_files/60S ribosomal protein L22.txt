@@ -1,0 +1,12 @@
+60S ribosomal protein L22 is a protein that in humans is encoded by the RPL22 gene on Chromosome 1.
+
+Function
+Ribosomes, the organelles that catalyze protein synthesis, consist of a small 40S subunit and a large 60S subunit. Together these subunits are composed of 4 RNA species and approximately 80 structurally distinct proteins. This gene encodes a cytoplasmic ribosomal protein that is a component of the 60S subunit. The protein belongs to the L22E family of ribosomal proteins. Its initiating methionine residue is post-translationally removed. The protein can bind specifically to Epstein–Barr virus-encoded small RNA (EBER) 1. The mouse protein has been shown to be capable of binding to heparin. Transcript variants utilizing alternative polyA signals exist. As is typical for genes encoding ribosomal proteins, there are multiple processed pseudogenes of this gene dispersed through the genome. It was previously thought that this gene mapped to 3q26 and that it was fused to the acute myeloid leukemia 1 (AML1) gene located at 21q22 in some therapy-related myelodysplastic syndrome patients with 3;21 translocations; however, these fusions actually involve a ribosomal protein L22 pseudogene located at 3q26, and this gene actually maps to 1p36.3-p36.2.
+
+Insects
+The gene may play a role in Insect toxicity resistance. In culex mosquitos, it was one of several ribosomal proteins which were overexpressed in strains resistant to the insecticide deltamethrin.  More focused analysis revealed that resistant mosquitoes expressed RPL22 at a level more than 2.5x higher than susceptible strains; however, the same study found that over-expression of RPL22 in transfected cells caused a down-regulation of a different deltamethrin-resistance gene (CYP6A1) and made these cells overall less resistant to the insecticide.
+
+References
+Further reading
+External links
+Overview of all the structural information available in the PDB for UniProt: P35268 (60S ribosomal protein L22) at the PDBe-KB.

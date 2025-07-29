@@ -1,0 +1,17 @@
+The 2024 Cyprus cyberattacks were a series of unsuccessful cyberattacks directed against the Republic of Cyprus by a group of hackers in the organisation known as LulzSec black and with assistance from the group "Moroccan soldiers" due to as they claimed, the relationship between Cyprus and Israel.
+
+Attack and targeted websites
+On October 15th 2024, the Cypriot authorities were alerted to a possible cyberattack that was to take place against the Republic of Cyprus on October 17th by the cybersecurity firm Odyssey and as such, all government websites were placed on high alert.
+On the morning of October 18th, the first target of the cyberattacks was Hermes Airports which is the operator of Larnaka international airport. The attempt failed and there was no disruptions to the airports operations, the website only going down for a few minutes. Later on in the day, the Electricity Authority of Cyprus alongside the Bank of Cyprus were also attacked but again being unsuccessful.
+On October 19th, the Cyprus Telecommunications Authority (CYTA) and EKO websites were also attacked however thwarted the threats successfully. Later on the government website was also attacked but no breach was successful.
+
+Response
+Though the attacks were not successful, the government stressed calm among concerned citizens and the Commissioner for the Regulation of Electronic Communications and Posts stressed that there should be vigilance and that other attacks were possible but there were no breaches as of then.
+
+See also
+Denial-of-service attack
+Cyprus Intelligence Service
+Cyprus News Agency
+
+
+== References ==

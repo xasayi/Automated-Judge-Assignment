@@ -1,0 +1,6 @@
+50 Persei is a star in the constellation Perseus. Its apparent magnitude is 5.52, which is bright enough to be seen with the naked eye. Located around 21.00 parsecs (68.5 ly) distant, it is a White main-sequence star of spectral type F7V, a star that is currently fusing its core hydrogen. In 1998 the star was named a candidate Gamma Doradus variable with a period of 3.05 days, which would means it displays variations in luminosity due to non-radial pulsations in the photosphere. Subsequently, it was classified as a RS Canum Venaticorum and BY Draconis variable by an automated program.
+This is probably a binary system with an unseen companion. It is physically associated with the likely binary system HIP 19255, with the two pairs orbiting each other over a time scale of around a million years. The components of HIP 19255 have an angular separation of 3.87″ and the two components orbit each other every 590 years. 50 Persei may share a gravitational association with Capella, even though the two are separated by nearly 15° − equivalent to a distance of 19 ly (5.9 pc).
+50 Persei is emitting an infrared excess at a wavelength of 70 μm, suggesting the presence of a circumstellar debris disk. The disk has a temperature of 96±5 K.
+
+
+== References ==

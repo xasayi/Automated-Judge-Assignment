@@ -1,0 +1,9 @@
+7 Vulpeculae is a binary star system approximately 910 light years away in the slightly northern constellation of Vulpecula. It is a challenge to view with the naked eye, having an apparent visual magnitude of 6.3. The system currently has a heliocentric radial velocity of −38 km/s.
+This is a single-lined spectroscopic binary star system with an orbital period of 69.3 days and an eccentricity of 0.16. The visible component is a Be star with a stellar classification of B4–5 III–IVe that appears to be nearing the end of its main sequence lifetime. The system shows a rapid projected rotational velocity of 300 km/s, which is just below the estimated critical velocity for a binary of 367 km/s.
+There is a small variability in the magnitude over a 0.559-day cycle; this is likely the rotation period of the primary star.
+The nature of the companion is unknown, but based upon its mass it may be a K- or M-type star. It could be a white dwarf that has undergone a mass transfer to the primary. Because of the lack of X-ray emission from the system, a third possibility is that the companion is a naked He star that has been stripped of its hydrogen envelope.
+
+References
+External links
+
+7 Vulpeculae on WikiSky: DSS2, SDSS, GALEX, IRAS, Hydrogen α, X-Ray, Astrophoto, Sky Map, Articles and images

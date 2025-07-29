@@ -1,0 +1,9 @@
+785 Zwetana is a minor planet orbiting the Sun that was discovered by Adam Massinger, an assistant at the Heidelberg Observatory, on March 30, 1914. It was named for the daughter of Kiril Popoff, a Bulgarian astronomer. This asteroid is orbiting 2.57 AU from the Sun with an eccentricity (ovalness) of 0.21 and a period of 4.12 yr. The orbital plane is inclined by an angle of 12.8° to the plane of the ecliptic.
+This asteroid spans a girth of ~48.5 km and it has a Tholen taxonomic class of M. Radar observations indicate that it is almost certainly metallic. The near infrared spectra suggests the presence of spinel on the surface, which is indicative of calcium–aluminium-rich inclusions. The best meteorite analog to the near infrared spectrum of this object is the enstatite chondrite, Abee.
+In 1990, the asteroid was observed from the European Southern Observatory, allowing a composite light curve to be produced that showed a rotation period of 8.919±0.004 h and a brightness variation of 0.13±0.01 in magnitude. 2013 observations from the Palmer Divide Observatory found a rotation period of 8.885 hours with a magnitude amplitude of 0.18. This is consistent with other published results.
+
+References
+External links
+785 Zwetana at AstDyS-2, Asteroids—Dynamic Site
+Ephemeris · Observation prediction · Orbital info · Proper elements · Observational info
+785 Zwetana at the JPL Small-Body Database
