@@ -1,0 +1,13 @@
+name: judge_assign
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - anaconda::numpy
+  - anaconda::pandas
+  - transformers
+  - sentence-transformers[version='>=2.7.0']
+  - anaconda::nltk
+  - scipy[version='<1.13']
+  - ipython
+  - ipykernel
