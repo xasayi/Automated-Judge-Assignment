@@ -40,11 +40,14 @@ def get_ranking(
     sim_matrix: np.ndarray,
     score_dic: dict[tuple[int, int], float],
     percentiles: np.ndarray,
-    score_mat: np.ndarray,
+    # score_mat: np.ndarray,
     output_path: str,
 ) -> np.ndarray:
     sim_pairs = list(score_dic.keys())
-    sim_vals = [sim_matrix[j, v] for j, v in sim_pairs]
+    try:
+        sim_vals = [sim_matrix[j, v] for j, v in sim_pairs]
+    except:
+        sim_vals = sim_matrix
 
     sorted_indices = np.argsort(sim_vals)
     score_ranks = np.zeros(len(sorted_indices))
