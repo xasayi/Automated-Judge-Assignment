@@ -118,18 +118,17 @@ def get_tokenizer_and_model(
     return tokenizer, pretrained_model
 
 
-def get_embedding_sim(
+def compute_embedding_sim(
     judge_folder: str,
     venture_folder: str,
     model: str,
     stem: bool,
     sanitize: bool,
-    lines: bool,
     keep_ui: bool,
     token_level: bool,
-) -> np.ndarray:
+) -> tuple[np.ndarray, dict, dict]:
     judges, ventures = get_parsed_data(
-        judge_folder, venture_folder, stem, sanitize, lines, keep_ui
+        judge_folder, venture_folder, stem, sanitize, True, keep_ui
     )
     judge_df = pd.DataFrame(
         [{"index": i, "info": text} for i, (_, text) in enumerate(judges.items())]
@@ -157,7 +156,11 @@ def get_embedding_sim(
         )
     end = time.time()
     print(f"Calculating similarity matrix took: {round(end - start, 2)} seconds")
-    return similarity_matrix
+
+    ind_to_judge = {ind: judge for ind, judge in enumerate(judges.keys())}
+    ind_to_venture = {ind: venture for ind, venture in enumerate(ventures.keys())}
+
+    return similarity_matrix, ind_to_judge, ind_to_venture
 
 
 def token_similarity(

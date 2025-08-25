@@ -72,14 +72,13 @@ def tokenize_hybrid(
 def get_hybrid_embeddings(
     judge_folder: str,
     venture_folder: str,
-    wiki_folder: str,
+    wiki_folder: str | None,
     model: str,
     augmented_idf: bool,
     stem: bool,
     sanitize: bool,
-    lines: bool,
     keep_ui: bool,
-) -> tuple[Tensor, Tensor, Tensor, Tensor, Tensor, Tensor]:
+) -> tuple[Tensor, Tensor, Tensor, Tensor, Tensor, Tensor, dict, dict]:
     if augmented_idf:
         judges, ventures = get_parsed_data(
             judge_folder,
@@ -109,8 +108,12 @@ def get_hybrid_embeddings(
         )
 
     judge_line, venture_line = get_parsed_data(
-        judge_folder, venture_folder, stem, sanitize, lines, keep_ui
+        judge_folder, venture_folder, stem, sanitize, lines=True, keep_ui=keep_ui
     )
+
+    ind_to_judge = {ind: judge for ind, judge in enumerate(judge_line.keys())}
+    ind_to_venture = {ind: venture for ind, venture in enumerate(venture_line.keys())}
+
     judge_df = pd.DataFrame(
         [{"index": i, "info": text} for i, (_, text) in enumerate(judge_line.items())]
     )
@@ -135,10 +138,12 @@ def get_hybrid_embeddings(
         venture_embeddings,
         venture_idf_weights,
         venture_mask,
+        ind_to_judge,
+        ind_to_venture,
     )
 
 
-def get_hybrid_sim(
+def compute_hybrid_sim(
     judge_embeddings: Tensor,
     judge_idf_weights: Tensor,
     judge_mask: Tensor,
@@ -146,7 +151,6 @@ def get_hybrid_sim(
     venture_idf_weights: Tensor,
     venture_mask: Tensor,
     token_level: bool,
-    linear_kernel: bool,
 ) -> np.ndarray:
     start = time.time()
     if not token_level:
@@ -168,27 +172,9 @@ def get_hybrid_sim(
             mean_judge_embed.numpy(), mean_venture_embed.numpy()
         )
     else:
-        if linear_kernel:
-            n1 = judge_embeddings.shape[0]
-            n2 = venture_embeddings.shape[0]
-
-            similarity_matrix = np.zeros((n1, n2))
-            for i in range(n1):
-                valid_emb1 = judge_embeddings[
-                    i,
-                    judge_mask[i, :, 0].bool(),
-                ]
-                for j in range(n2):
-                    valid_emb2 = venture_embeddings[
-                        j,
-                        venture_mask[j, :, 0].bool(),
-                    ]
-                    sim_mat = torch.matmul(valid_emb1, valid_emb2.T)
-                    similarity_matrix[i, j] = sim_mat.mean()
-        else:
-            similarity_matrix = token_similarity(
-                judge_embeddings, judge_mask, venture_embeddings, venture_mask
-            )
+        similarity_matrix = token_similarity(
+            judge_embeddings, judge_mask, venture_embeddings, venture_mask
+        )
     end = time.time()
     print(f"Calculating similarities took: {round(end - start, 2)} seconds")
     return similarity_matrix

@@ -93,28 +93,27 @@ def compute_tfidf_sim_aug(
     wiki_folder: str | None,
     stem: bool,
     sanitize: bool,
-    lines: bool,
     keep_ui: bool,
-) -> np.ndarray:
+) -> tuple[np.ndarray, dict, dict]:
     judges, ventures = get_parsed_data(
-        judge_folder, venture_folder, stem, sanitize, lines, keep_ui
+        judge_folder, venture_folder, stem, sanitize, False, keep_ui
     )
-    judge_to_ind = {judge: ind for ind, judge in enumerate(judges.keys())}
-    venture_to_ind = {venture: ind for ind, venture in enumerate(ventures.keys())}
+    ind_to_judge = {ind: judge for ind, judge in enumerate(judges.keys())}
+    ind_to_venture = {ind: venture for ind, venture in enumerate(ventures.keys())}
     idf, _ = get_aug_tfidf(
-        [judges, ventures], wiki_folder, stem, sanitize, lines, keep_ui
+        [judges, ventures], wiki_folder, stem, sanitize, False, keep_ui
     )
     similarity_matrix = -np.ones((len(judges), len(ventures)))
 
-    for judge, j_ind in judge_to_ind.items():
-        for venture, v_ind in venture_to_ind.items():
+    for j_ind, judge in ind_to_judge.items():
+        for v_ind, venture in ind_to_venture.items():
             j_counter, v_counter = judges[judge], ventures[str(venture)]
 
             if len(j_counter) != 0 and len(v_counter) != 0:
                 similarity_matrix[j_ind, v_ind] = tfidf_sim_aug(
                     j_counter, v_counter, idf
                 )
-    return similarity_matrix
+    return similarity_matrix, ind_to_judge, ind_to_venture
 
 
 def compute_tfidf_sim(
@@ -123,23 +122,24 @@ def compute_tfidf_sim(
     wiki_folder: str | None,
     stem: bool,
     sanitize: bool,
-    lines: bool,
     keep_ui: bool,
-) -> np.ndarray:
+) -> tuple[np.ndarray, dict, dict]:
     count_vectorizer = CountVectorizer(stop_words="english")
     tfidf = TfidfTransformer(
         smooth_idf=True, use_idf=True, norm="l2", sublinear_tf=False
     )
 
     judges, ventures = get_parsed_data(
-        judge_folder, venture_folder, stem, sanitize, lines, keep_ui
+        judge_folder, venture_folder, stem, sanitize, True, keep_ui
     )
+    ind_to_judge = {ind: judge for ind, judge in enumerate(judges.keys())}
+    ind_to_venture = {ind: venture for ind, venture in enumerate(ventures.keys())}
 
     judge_values = list(judges.values())
     venture_values = list(ventures.values())
 
     if wiki_folder is not None:
-        wiki_dic = parse_info(wiki_folder, stem, sanitize, lines, keep_ui)
+        wiki_dic = parse_info(wiki_folder, stem, sanitize, True, keep_ui)
         wiki_values = list(wiki_dic.values())
         word_count_vec = count_vectorizer.fit_transform(
             judge_values + venture_values + wiki_values
@@ -154,7 +154,7 @@ def compute_tfidf_sim(
     similarity_matrix = linear_kernel(tfidf_vec, tfidf_vec)[
         : len(judge_values), len(judge_values) :
     ]
-    return similarity_matrix
+    return similarity_matrix, ind_to_judge, ind_to_venture
 
 
 def get_smoothed_tfidf(

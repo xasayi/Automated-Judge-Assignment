@@ -1,3 +1,4 @@
+import math
 import numpy as np
 import scipy.stats as stats
 
@@ -60,30 +61,24 @@ def get_ranking(
         start = int(end)
 
     manual_scores = list(score_dic.values())
-    full_sim_scores = [score_mat[j, v] for j, v in sim_pairs]
-
-    tau1, p1 = stats.kendalltau(manual_scores, score_ranks)
+    # full_sim_scores = [score_mat[j, v] for j, v in sim_pairs]
 
     full_sorted = np.argsort(sim_vals)
     raw_ranks = np.empty_like(full_sorted)
     raw_ranks[full_sorted] = np.arange(len(full_sorted))
-    tau2, p2 = stats.kendalltau(manual_scores, raw_ranks)
+    tau, p = stats.kendalltau(manual_scores, raw_ranks)
 
-    with open(output_path, "a") as f:
-        f.write(
-            "Ranking based on manually labeled scores vs similarity-based buckets\n"
-        )
-        f.write(f"{tau1:.2f}, p={p1:.3f}\n\n")
+    with open(output_path, "w") as f:
         f.write("Manual scores vs full similarity rank order\n")
-        f.write(f"{tau2:.2f}, p={p2:.3f}\n\n")
+        f.write(f"τ={tau:.2f}, p={p:.3f}\n")
 
-        for i, (j, v) in enumerate(sim_pairs):
-            f.write(f"Pair: ({j}, {v})\n")
-            f.write(
-                f"Manual: {manual_scores[i]}, Bucket Rank: {score_ranks[i]}, "
-                f"Full Rank: {full_sim_scores[i]}, Rank Index: {raw_ranks[i]}, "
-                f"Sim Value: {sim_vals[i]}\n\n"
-            )
-        f.write("\n\n")
-        f.write("----------------------------------------------------")
+        # can print out the individual predicted vs ground truth scores
+        # for i, (j, v) in enumerate(sim_pairs):
+        #     f.write(f"Pair: ({j}, {v})\n")
+        #     f.write(
+        #         f"Ground Truth Score: {manual_scores[i]}, Predicted Score: {full_sim_scores[i]}, Predicted Rank: {raw_ranks[i]}, "
+        #         f"Sim Value: {sim_vals[i]}\n\n"
+        #     )
+        # f.write("\n\n")
+        # f.write("----------------------------------------------------")
     return score_ranks
