@@ -20,4 +20,4 @@ conda env create -f environment.yaml
 ## Usage
 
 ### Example Use
-To understand the code functionality, go to tutorials.ipynb, it outlines example usage of similarity matrix calculations, evaluation, and ensemble optimization. 
+To understand the code functionality, go to tutorials.ipynb, it outlines example usage of how to calculate similarity matrix for base models, how the base models are combined into an ensemble learner, and how the performance of the models are evaluated. 
