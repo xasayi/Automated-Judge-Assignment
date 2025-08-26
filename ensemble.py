@@ -69,8 +69,8 @@ def get_input_and_labels(
         sim_mats = np.loadtxt(name)
         sims = [sim_mats[j, v] for j, v in pairs]
         normalized_sims = (sims - np.min(sims)) / (np.max(sims) - np.min(sims))
-
         model_sims.append(normalized_sims)
+
     X = np.array(model_sims).T
     y = np.array(list(score_dic.values()))
     norm_y = (y - np.min(y)) / (np.max(y) - np.min(y))

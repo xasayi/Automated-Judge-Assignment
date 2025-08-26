@@ -64,7 +64,6 @@ def get_ranking(
         start = int(end)
 
     manual_scores = list(score_dic.values())
-    # full_sim_scores = [score_mat[j, v] for j, v in sim_pairs]
 
     full_sorted = np.argsort(sim_vals)
     raw_ranks = np.empty_like(full_sorted)
@@ -73,15 +72,15 @@ def get_ranking(
 
     with open(output_path, "w") as f:
         f.write("Manual scores vs full similarity rank order\n")
-        f.write(f"τ={tau:.2f}, p={p:.3f}\n")
+        f.write(f"τ={tau:.2f}, p={p:.3f}\n\n")
 
         # can print out the individual predicted vs ground truth scores
-        # for i, (j, v) in enumerate(sim_pairs):
-        #     f.write(f"Pair: ({j}, {v})\n")
-        #     f.write(
-        #         f"Ground Truth Score: {manual_scores[i]}, Predicted Score: {full_sim_scores[i]}, Predicted Rank: {raw_ranks[i]}, "
-        #         f"Sim Value: {sim_vals[i]}\n\n"
-        #     )
-        # f.write("\n\n")
-        # f.write("----------------------------------------------------")
+        for i, (j, v) in enumerate(sim_pairs):
+            f.write(f"Pair: ({j}, {v})\n")
+            f.write(
+                f"Ground Truth Score: {manual_scores[i]}, Predicted Rank: {raw_ranks[i]}, "
+                f"Sim Value: {sim_vals[i]}\n\n"
+            )
+        f.write("\n\n")
+        f.write("----------------------------------------------------")
     return score_ranks
