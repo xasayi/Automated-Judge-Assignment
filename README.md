@@ -1,6 +1,6 @@
 # Who is a Better Matchmaker?
 
-This repository contains code for the paper "Who is a Better Matchmaker? Human vs. Algorithmic Judge Assignment in a High-Stakes Startup Competition" by Sarina Xi, Orelia Pi, Miaomiao Zhang, Becca Xiong, Jacqueline Ng Lane, and Nihar B Shah, The structure of the directory is as follows:
+This repository contains code for the paper "Who is a Better Matchmaker? Human vs. Algorithmic Judge Assignment in a High-Stakes Startup Competition" by Sarina Xi, Orelia Pi, Miaomiao Zhang, Becca Xiong, Jacqueline Ng Lane, and Nihar B. Shah, The structure of the directory is as follows:
 
 1. `tutorial.ipynb` contains example usage of the code and algorithms. 
 2. `similarity` folder contains similarity matrix calculations.
